@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <span class="dot" id="dot"></span>
+      <h1>Snake Anywhere</h1>
+      <b id="best">0</b>
+    </header>
+
+    <button id="play" class="play">Jouer sur cette page</button>
+    <p id="hint" class="hint"></p>
+
+    <h2>Modes</h2>
+    <div class="presets">
+      <button class="preset" data-preset="discret">Discret</button>
+      <button class="preset" data-preset="classique">Classique</button>
+      <button class="preset" data-preset="arcade">Arcade</button>
+      <button class="preset" data-preset="chaos">Chaos</button>
+      <button class="preset" data-preset="zen">Zen</button>
+      <button class="preset" data-preset="disco">Disco</button>
+    </div>
+
+    <h2>Jeu</h2>
+
+    <label class="row">
+      <span>Vitesse</span>
+      <select id="speed">
+        <option value="chill">Tranquille</option>
+        <option value="normal">Normale</option>
+        <option value="fast">Rapide</option>
+        <option value="insane">Démente</option>
+      </select>
+    </label>
+
+    <label class="row">
+      <span>Accélère avec le score</span>
+      <input type="checkbox" id="accelerate" />
+    </label>
+
+    <label class="row">
+      <span>Murs mortels</span>
+      <input type="checkbox" id="walls" />
+    </label>
+
+    <label class="row">
+      <span>Traverser son corps</span>
+      <input type="checkbox" id="ghost" />
+    </label>
+
+    <label class="row">
+      <span>Jetons simultanés</span>
+      <span class="ctrl">
+        <input type="range" id="foodCount" min="1" max="8" step="1" />
+        <output id="foodCountOut"></output>
+      </span>
+    </label>
+
+    <label class="row">
+      <span>Croissance par jeton</span>
+      <span class="ctrl">
+        <input type="range" id="growth" min="1" max="4" step="1" />
+        <output id="growthOut"></output>
+      </span>
+    </label>
+
+    <label class="row">
+      <span>Jetons dorés <i>+5</i></span>
+      <input type="checkbox" id="golden" />
+    </label>
+
+    <label class="row">
+      <span>Obstacles</span>
+      <select id="obstacles">
+        <option value="none">Aucun</option>
+        <option value="few">Quelques-uns</option>
+        <option value="many">Beaucoup</option>
+      </select>
+    </label>
+
+    <h2>Apparence</h2>
+
+    <div class="row col">
+      <span>Couleur du serpent</span>
+      <div class="swatches" id="swatches">
+        <button class="sw" data-color="#3fb950" style="--c:#3fb950"></button>
+        <button class="sw" data-color="#39d0d8" style="--c:#39d0d8"></button>
+        <button class="sw" data-color="#a371f7" style="--c:#a371f7"></button>
+        <button class="sw" data-color="#f778ba" style="--c:#f778ba"></button>
+        <button class="sw" data-color="#e3b341" style="--c:#e3b341"></button>
+        <button class="sw" data-color="#f85149" style="--c:#f85149"></button>
+        <button class="sw" data-color="#e6edf3" style="--c:#e6edf3"></button>
+        <button class="sw rainbow" data-color="rainbow" title="Arc-en-ciel"></button>
+        <input type="color" id="snakeCustom" title="Couleur libre" />
+      </div>
+    </div>
+
+    <label class="row">
+      <span>Couleur des jetons</span>
+      <input type="color" id="foodColor" />
+    </label>
+
+    <label class="row">
+      <span>Taille des cases</span>
+      <select id="cellSize">
+        <option value="18">Petites</option>
+        <option value="26">Moyennes</option>
+        <option value="34">Grandes</option>
+      </select>
+    </label>
+
+    <label class="row">
+      <span>Forme</span>
+      <select id="shape">
+        <option value="round">Arrondie</option>
+        <option value="square">Carrée</option>
+        <option value="circle">Ronde</option>
+      </select>
+    </label>
+
+    <label class="row">
+      <span>Halo lumineux</span>
+      <input type="checkbox" id="trail" />
+    </label>
+
+    <label class="row">
+      <span>Afficher le score</span>
+      <input type="checkbox" id="hud" />
+    </label>
+
+    <label class="row">
+      <span>Grille et cadre</span>
+      <input type="checkbox" id="grid" />
+    </label>
+
+    <label class="row">
+      <span>Flou d'arrière-plan</span>
+      <input type="checkbox" id="blur" />
+    </label>
+
+    <label class="row">
+      <span>Assombrir la page</span>
+      <span class="ctrl">
+        <input type="range" id="dim" min="0" max="0.9" step="0.02" />
+        <output id="dimOut"></output>
+      </span>
+    </label>
+
+    <footer>
+      <button id="shortcut" class="link">Raccourci</button>
+      <button id="reset" class="link">Tout par défaut</button>
+      <button id="clear" class="link danger">Effacer le record</button>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

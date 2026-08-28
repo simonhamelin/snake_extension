@@ -1,0 +1,209 @@
+:root {
+  color-scheme: dark;
+  --bg: #0c0f0d;
+  --fg: #e6f5e8;
+  --accent: #7ee787;
+  --line: rgba(255, 255, 255, 0.1);
+  --muted: rgba(230, 245, 232, 0.5);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 306px;
+  max-height: 560px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 14px 16px 16px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+body::-webkit-scrollbar { width: 8px; }
+body::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 4px; }
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  flex: 1;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+header b {
+  font-size: 15px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 10px currentColor;
+}
+
+h2 {
+  margin: 18px 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.play {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: rgba(126, 231, 135, 0.12);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+.play:hover:not(:disabled) { background: rgba(126, 231, 135, 0.22); }
+.play:disabled {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 1em;
+}
+
+/* --- presets --- */
+
+.presets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.preset {
+  padding: 7px 4px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--fg);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+.preset:hover { border-color: var(--accent); background: rgba(126, 231, 135, 0.1); }
+
+/* --- lignes de réglage --- */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 12px;
+}
+.row.col { display: block; }
+.row i { font-style: normal; color: #ffd33d; font-size: 10px; }
+
+.ctrl { display: flex; align-items: center; gap: 8px; }
+
+output {
+  min-width: 26px;
+  text-align: right;
+  font-size: 11px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+select, input[type="range"] { font: inherit; accent-color: var(--accent); }
+
+select {
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #131714;
+  color: var(--fg);
+}
+
+input[type="checkbox"] { accent-color: var(--accent); width: 15px; height: 15px; }
+input[type="range"] { width: 92px; }
+
+input[type="color"] {
+  width: 30px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+}
+
+/* --- nuancier --- */
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.sw {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: var(--c);
+  cursor: pointer;
+  outline-offset: 2px;
+}
+.sw.rainbow {
+  background: conic-gradient(#f85149, #e3b341, #3fb950, #39d0d8, #a371f7, #f778ba, #f85149);
+}
+.sw[aria-pressed="true"] {
+  border-color: var(--fg);
+  box-shadow: 0 0 0 1px var(--bg) inset;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link:hover { color: var(--fg); }
+.danger:hover { color: #ff6b6b; }
